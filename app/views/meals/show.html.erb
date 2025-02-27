@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Meal #<%= @the_meal.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/meals">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_meal/<%= @the_meal.id %>">
+          Delete meal
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @the_meal.description %>
+      </dd>
+
+      <dt>
+        Fat
+      </dt>
+      <dd>
+        <%= @the_meal.fat %>
+      </dd>
+
+      <dt>
+        Carbs
+      </dt>
+      <dd>
+        <%= @the_meal.carbs %>
+      </dd>
+
+      <dt>
+        Protein
+      </dt>
+      <dd>
+        <%= @the_meal.protein %>
+      </dd>
+
+      <dt>
+        Total calories
+      </dt>
+      <dd>
+        <%= @the_meal.total_calories %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_meal.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_meal.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit meal
+    </h2>
+
+    <form action="/modify_meal/<%= @the_meal.id %>"  method="post" >
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea id="description_box" name="query_description"><%= @the_meal.description %></textarea>
+      </div>
+
+      <div>
+        <label for="fat_box">
+          Fat
+        </label>
+
+        <input type="text" id="fat_box" name="query_fat" value="<%= @the_meal.fat %>">
+      </div>
+
+      <div>
+        <label for="carbs_box">
+          Carbs
+        </label>
+
+        <input type="text" id="carbs_box" name="query_carbs" value="<%= @the_meal.carbs %>">
+      </div>
+
+      <div>
+        <label for="protein_box">
+          Protein
+        </label>
+
+        <input type="text" id="protein_box" name="query_protein" value="<%= @the_meal.protein %>">
+      </div>
+
+      <div>
+        <label for="total_calories_box">
+          Total calories
+        </label>
+
+        <input type="text" id="total_calories_box" name="query_total_calories" value="<%= @the_meal.total_calories %>">
+      </div>
+
+      <button>
+        Update meal
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

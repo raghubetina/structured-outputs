@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      List of all meals
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new meal
+    </h2>
+
+    <form action="/insert_meal" method="post">
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea id="description_box" name="query_description" rows="3"></textarea>
+      </div>
+
+      <button>
+        Create meal
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          Fat
+        </th>
+
+        <th>
+          Carbs
+        </th>
+
+        <th>
+          Protein
+        </th>
+
+        <th>
+          Total calories
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_meals.each do |a_meal| %>
+      <tr>
+        <td>
+          <%= a_meal.id %>
+        </td>
+
+        <td>
+          <%= a_meal.description %>
+        </td>
+
+        <td>
+          <%= a_meal.fat %>
+        </td>
+
+        <td>
+          <%= a_meal.carbs %>
+        </td>
+
+        <td>
+          <%= a_meal.protein %>
+        </td>
+
+        <td>
+          <%= a_meal.total_calories %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_meal.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_meal.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/meals/<%= a_meal.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
